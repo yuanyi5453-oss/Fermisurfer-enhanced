@@ -1,0 +1,9 @@
+/build/
+/exports/
+/validation/
+/test-output/
+__pycache__/
+*.pyc
+*.o
+*.so
+*.new

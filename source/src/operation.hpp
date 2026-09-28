@@ -1,0 +1,58 @@
+/*
+The MIT License (MIT)
+
+Copyright (c) 2014 Mitsuaki KAWAMURA
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+*/
+#ifndef _OPERATOR_H_
+#define _OPERATOR_H_
+
+#include "wx/glcanvas.h"
+
+// The OpenGL-enabled canvas
+class TestGLCanvas : public wxGLCanvas
+{
+public:
+  TestGLCanvas(wxWindow* parent,
+    wxWindowID id = wxID_ANY,
+    int* gl_attrib = NULL);
+
+  virtual ~TestGLCanvas();
+
+  void OnPaint(wxPaintEvent& event);
+  void OnSize(wxSizeEvent& event);
+  void OnChar(wxKeyEvent& event);
+  void OnMouseEvent(wxMouseEvent& event);
+  void InitGL();
+  void MakeCurrent();
+  void RenderScene(int width, int height);
+  void RotateImage(int quarter_turns);
+  void ResetImageRotation();
+  int GetImageRotation() const { return m_image_quarter_turns * 90; }
+
+private:
+  wxGLContext* m_glRC;
+  int m_image_quarter_turns = 0;
+
+  wxDECLARE_NO_COPY_CLASS(TestGLCanvas);
+  wxDECLARE_EVENT_TABLE();
+};
+
+#endif // _OPERATOR_H_

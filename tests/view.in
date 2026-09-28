@@ -1,0 +1,15 @@
+backgroundcolor 1 1 1
+linecolor 0.18 0.18 0.18
+band 1 1 1
+brillouinzone primitive
+colorbar 1
+colorscale bandindex
+interpol 1
+linewidth 0.35
+lighting both
+position -0.3 -0.2 -5
+scale 0.6
+rotation 20 35 10
+fermienergy 0
+stereogram none
+tetrahedron 1
